@@ -1,0 +1,20 @@
+help("hist")
+help(faithful) 
+attach(faithful)
+hist(eruptions,)
+print(temp <- density(eruptions))
+plot(density(eruptions), ylim=c(0,.7))
+rug(eruptions)
+lines(density(eruptions, bw="nrd"), col=2)
+lines(density(eruptions, bw="ucv"), col=3)
+lines(density(eruptions, bw="bcv"), col=4)
+lines(density(eruptions, bw="SJ-ste"), col=5)
+lines(density(eruptions, bw="SJ-dpi"), col=6)
+legend(5,0.7,legend=c("nrd0", "nrd", "ucv", "bcv", "SJ-ste","SJ-dpi"), col=1:6, lty=1)
+help(density)
+plot(density(eruptions, kernel="rectangular"))
+plot(density(eruptions, kernel="cosine"))
+plot(density(eruptions, kernel="gaussian"))
+
+
+

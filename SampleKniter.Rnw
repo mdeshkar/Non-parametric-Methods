@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage[margin = 1in]{geometry}
+\usepackage{amsmath}
+
+\begin{document}
+\begin{flushleft}
+
+
+Name 1\\
+Name 2 \\
+STAT 672 Homework \#0\\
+\vspace*{2\baselineskip}
+%or can use 
+%\bigskip
+Problem 1 from Lab\\
+Part A\\
+<<1a, echo=TRUE, eval=TRUE, background="white", include=TRUE, fig.height=3>>=
+set.seed(1)
+bindat <- rbinom(n=10000, size=10, prob=0.8)
+hist(bindat, breaks=seq(2, 10, 1), freq=F)
+@
+
+Part B\\
+<<1b, echo=TRUE, eval=TRUE, background="white", include=TRUE, fig.height=3>>=
+1-pbinom(7, 10, 0.8)
+@
+
+The probability that Dr. Dribble makes at least 8 out 10 free throws is 0.6778. 
+
+\pagebreak
+
+Part C\\
+<<1c, echo=TRUE, eval=TRUE, background="white">>=
+binom.test(15, 25, 0.4, alternative="greater")
+hold <- binom.test(15, 25, 0.4, alternative="greater")
+#the names command is useful!
+names(hold)
+hold$conf.int
+@
+
+The hypothesis testing problem is \\
+\smallskip
+$H_0: p = 0.4$ versus  $H_1: p > 0.4$\\
+%\vspace*{1\baselineskip}
+\medskip
+With a p-value of 0.03439 we reject the null hypothesis. We conclude that there is evidence that the first serve percentage is not 0.4 in favor of the alternative. 
+(This is if a tennis player actually makes 15/25 free throws.) \\
+\bigskip
+You can also interpret the confidence interval!
+
+\end{flushleft}
+\end{document}
